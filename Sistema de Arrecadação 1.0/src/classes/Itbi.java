@@ -1,6 +1,5 @@
 package classes;
 
-import java.time.Duration;
 import java.util.Date;
 
 public class Itbi extends Tributo {
@@ -12,7 +11,6 @@ public class Itbi extends Tributo {
 
     @Override
     public void pagar() {
-        // TODO Auto-generated method stub
         if (this.getDataPagamento().after(this.getVencimento())) {
             // terminar amanhã!!!
         }
@@ -20,8 +18,6 @@ public class Itbi extends Tributo {
 
     @Override
     public void pagarAcordo(double porcentagem) {
-        // TODO Auto-generated method stub
-
     }
 
 }
