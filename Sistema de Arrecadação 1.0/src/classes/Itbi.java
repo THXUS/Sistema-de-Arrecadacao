@@ -1,23 +1,23 @@
 package classes;
 
-import java.util.Date;
-
 public class Itbi extends Tributo {
 
-    public Itbi(float preco, Date vencimento, Date pagamento) {
-        super(preco, vencimento, pagamento);
-        this.setTipoJuros(0.25f);
+    private float juros = 0.25f;
+
+    public Itbi(float preco, String vencimento, String pagamento) {
+        // this.setTipoJuros(0.25f);
     }
 
     @Override
     public void pagar() {
-        if (this.getDataPagamento().after(this.getVencimento())) {
-            // terminar amanhã!!!
-        }
+        // TODO Auto-generated method stub
+
     }
 
     @Override
-    public void pagarAcordo(double porcentagem) {
+    public void fazerAcordo(float porcentagem) {
+        // TODO Auto-generated method stub
+
     }
 
 }

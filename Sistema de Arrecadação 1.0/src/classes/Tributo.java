@@ -1,27 +1,37 @@
 package classes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Tributo implements Pagamento {
     protected float preco;
-    protected Date vencimento;
-    protected Date dataPagamento;
-    protected float tipoJuros;
+    protected float multa = 2f;
+    protected LocalDate dataPagamento;
+    protected LocalDate vencimento;
 
-    public float getTipoJuros() {
-        return this.tipoJuros;
+    public LocalDate getDataPagamento() {
+        return this.dataPagamento;
     }
 
-    public void setTipoJuros(float tipoJuros) {
-        this.tipoJuros = tipoJuros;
+    public void setDataPagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
-    public Tributo(float preco, Date vencimento, Date pagamento) {
-        this.setPreco(preco);
-        this.setVencimento(vencimento);
-        this.setDataPagamento(pagamento);
-
+    public LocalDate getVencimento() {
+        return this.vencimento;
     }
+
+    public void setVencimento(LocalDate vencimento) {
+        this.vencimento = vencimento;
+    }
+
+    /*
+     * private void checagemDebito(LocalDate pagamento, LocalDate vencimento) { if
+     * (pagamento.isAfter(vencimento)) { // int diasAtraso = (int)
+     * ChronoUnit.DAYS.between(pagamento, vencimento);
+     * this.setValorTaxaMulta(this.multa); } else {
+     * System.out.println("Não está vencido!!"); }
+     * 
+     */
 
     public float getPreco() {
         return this.preco;
@@ -29,22 +39,6 @@ public abstract class Tributo implements Pagamento {
 
     public void setPreco(float preco) {
         this.preco = preco;
-    }
-
-    public Date getDataPagamento() {
-        return this.dataPagamento;
-    }
-
-    public void setDataPagamento(Date dataPagamento) {
-        this.dataPagamento = dataPagamento;
-    }
-
-    public Date getVencimento() {
-        return this.vencimento;
-    }
-
-    public void setVencimento(Date vencimento) {
-        this.vencimento = vencimento;
     }
 
 }
