@@ -2,22 +2,10 @@ package classes;
 
 public class Itbi extends Tributo {
 
-    private float juros = 0.25f;
-
-    public Itbi(float preco, String vencimento, String pagamento) {
-        // this.setTipoJuros(0.25f);
+    public Itbi(float preco, String pagamento, String vencimento) {
+        this.setPreco(preco);
+        this.juros = 0.25f;
+        this.setVencimento(this.converteData(vencimento));
+        this.setDataPagamento(this.converteData(pagamento));
     }
-
-    @Override
-    public void pagar() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void fazerAcordo(float porcentagem) {
-        // TODO Auto-generated method stub
-
-    }
-
 }
