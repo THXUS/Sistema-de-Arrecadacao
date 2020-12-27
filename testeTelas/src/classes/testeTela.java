@@ -24,10 +24,6 @@ public class testeTela extends javax.swing.JFrame {
     Tributo t;
     public testeTela() {
         initComponents();
-        this.totalField.setEnabled(false);
-        this.refisPainel.setVisible(false);
-        this.acordoBtn.setEnabled(false);
-        this.pagarBtn.setEnabled(false);
         
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dbc.jpeg")));
         Image img1 = myimage.getImage();
@@ -53,56 +49,45 @@ public class testeTela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pagamentoField = new com.toedter.calendar.JDateChooser();
         testeLabel = new javax.swing.JLabel();
-        checarBtn = new javax.swing.JButton();
-        vencimentoField = new com.toedter.calendar.JDateChooser();
-        pagarBtn = new javax.swing.JButton();
+        calcularBtn = new javax.swing.JButton();
+        limparBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         precoField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         tributoComboBox = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        acordoBtn = new javax.swing.JButton();
-        totalField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        refisPainel = new javax.swing.JPanel();
-        refisBtn = new javax.swing.JButton();
-        refisField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         imageLbl = new javax.swing.JLabel();
         megasoftLbl = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        pagamentoField = new com.toedter.calendar.JDateChooser();
+        vencimentoField = new com.toedter.calendar.JDateChooser();
+        refisField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pagamentoField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                pagamentoFieldKeyTyped(evt);
-            }
-        });
-
         testeLabel.setText(" made by: estagiario5");
 
-        checarBtn.setText("Checar");
-        checarBtn.addActionListener(new java.awt.event.ActionListener() {
+        calcularBtn.setText("Calcular");
+        calcularBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checarBtnActionPerformed(evt);
+                calcularBtnActionPerformed(evt);
             }
         });
 
-        pagarBtn.setText("Pagar");
-        pagarBtn.addActionListener(new java.awt.event.ActionListener() {
+        limparBtn.setText("Limpar Cálculos");
+        limparBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pagarBtnActionPerformed(evt);
+                limparBtnActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Pagamento");
+        jLabel2.setText("Data de Pagamento");
 
-        jLabel3.setText("Vencimento");
+        jLabel3.setText("Data de Vencimento");
 
         precoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,175 +100,129 @@ public class testeTela extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Preço");
+        jLabel4.setText("Valor DUAM");
 
         tributoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IPTU", "ITBI", "ISS" }));
 
         jLabel5.setText("Tributo");
 
-        acordoBtn.setText("Fazer Acordo Refis");
-        acordoBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acordoBtnActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
+        jLabel1.setText("Sistema de Arrecadação ");
+        jLabel1.setToolTipText("");
 
-        totalField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalFieldActionPerformed(evt);
-            }
-        });
-        totalField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                totalFieldKeyTyped(evt);
-            }
-        });
+        jLabel8.setText("Versão 1.0.6");
 
-        jLabel6.setText("Total a pagar");
+        pagamentoField.setDateFormatString("dd/MM/yyyy");
 
-        refisBtn.setText("Aplicar");
-        refisBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refisBtnActionPerformed(evt);
-            }
-        });
+        vencimentoField.setDateFormatString("dd/MM/yyyy");
 
         refisField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refisFieldActionPerformed(evt);
             }
         });
+        refisField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                refisFieldKeyTyped(evt);
+            }
+        });
 
-        jLabel7.setText("Porcentagem");
-
-        javax.swing.GroupLayout refisPainelLayout = new javax.swing.GroupLayout(refisPainel);
-        refisPainel.setLayout(refisPainelLayout);
-        refisPainelLayout.setHorizontalGroup(
-            refisPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(refisPainelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addGap(4, 4, 4)
-                .addComponent(refisField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(refisBtn)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        refisPainelLayout.setVerticalGroup(
-            refisPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, refisPainelLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(refisPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(refisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refisBtn))
-                .addGap(31, 31, 31))
-        );
-
-        jLabel1.setFont(new java.awt.Font("TlwgMono", 1, 24)); // NOI18N
-        jLabel1.setText("Sistema de Arrecadação ");
-        jLabel1.setToolTipText("");
-
-        jLabel8.setText("Versão 1.0");
+        jLabel7.setText("Porcentagem Refis");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(tributoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(acordoBtn)
-                                    .addComponent(vencimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(checarBtn)
-                                    .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pagamentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(testeLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(refisPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(pagarBtn)))))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(68, 68, 68)
-                            .addComponent(megasoftLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
-                            .addComponent(imageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(285, 285, 285)
+                        .addComponent(testeLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(refisField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(calcularBtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(limparBtn))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tributoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(pagamentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(vencimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(megasoftLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)
+                        .addComponent(imageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(62, 62, 62)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tributoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(pagamentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel3)
-                .addGap(27, 27, 27)
-                .addComponent(vencimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(checarBtn)
-                .addGap(18, 18, 18)
-                .addComponent(acordoBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(refisPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tributoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pagamentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vencimentoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(106, 106, 106)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pagarBtn)
-                    .addComponent(totalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                    .addComponent(calcularBtn)
+                    .addComponent(limparBtn)
+                    .addComponent(refisField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(64, 64, 64)
                 .addComponent(testeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(megasoftLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(imageLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(megasoftLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void checarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checarBtnActionPerformed
+    private void calcularBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularBtnActionPerformed
 
         try {
             float preco = Float.parseFloat(this.precoField.getText());
@@ -292,50 +231,28 @@ public class testeTela extends javax.swing.JFrame {
 
             if (this.tributoComboBox.getSelectedItem().equals("IPTU")) {
                 this.t = new Iptu(preco, pagamento, vencimento);
-                this.totalField.setText(t.valorTotal());
             } else if (this.tributoComboBox.getSelectedItem().equals("ISS")) {
                 this.t = new Iss(preco, pagamento, vencimento);
-                this.totalField.setText(t.valorTotal());
             } else {
                 this.t = new Itbi(preco, pagamento, vencimento);
-                this.totalField.setText(t.valorTotal());
             }
-
-            this.pagarBtn.setEnabled(true);
-            this.acordoBtn.setEnabled(true);
-
+            t.pagar(this.refisField);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Erro","Sistema de arrecadação", JOptionPane.PLAIN_MESSAGE);
-            this.limpar();
         }
      
-    }//GEN-LAST:event_checarBtnActionPerformed
+    }//GEN-LAST:event_calcularBtnActionPerformed
 
-    private void pagarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarBtnActionPerformed
+    private void limparBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparBtnActionPerformed
 
-        if (!this.refisField.getText().equals("")) {
-            this.t.fazerAcordo(Float.parseFloat(this.refisField.getText()));
-        } else {
-            this.t.fazerAcordo(100);
-        }
-        if (this.t.getTaxa() <= 0) {
-            JOptionPane.showMessageDialog(null, "Pagamento confirmado\n" + "Valor: R$" + this.t.valorTotal(), "Sistema de arrecadação", JOptionPane.PLAIN_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Pagamento confirmado\n" + "Valor: R$" + this.t.getPreco() + "\n" + "Taxa por Atraso: R$" + this.t.getTaxa()
-                    + "\n" + "ValorTotal: R$" + this.t.valorTotal(),
-                    "Sistema de arrecadação", JOptionPane.PLAIN_MESSAGE);
-        }
         this.limpar();
-    }//GEN-LAST:event_pagarBtnActionPerformed
+    }//GEN-LAST:event_limparBtnActionPerformed
 
     public void limpar(){
         this.pagamentoField.setCalendar(null);
         this.vencimentoField.setCalendar(null);
-        this.totalField.setText(null);
         this.precoField.setText(null);
         this.refisField.setText(null);
-        this.acordoBtn.setEnabled(false);
-        this.pagarBtn.setEnabled(false);
     }
     private void precoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precoFieldActionPerformed
         // TODO add your handling code here:
@@ -348,37 +265,21 @@ public class testeTela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_precoFieldKeyTyped
 
-    private void acordoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acordoBtnActionPerformed
-
-        this.refisPainel.setVisible(true);
-    }//GEN-LAST:event_acordoBtnActionPerformed
-
-    private void totalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFieldActionPerformed
+    private void pagamentoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pagamentoFieldKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalFieldActionPerformed
-
-    private void refisBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refisBtnActionPerformed
-
-        if(this.refisField.getText().equals("")){
-            this.totalField.setText(t.simularAcordo(100));
-        }
-        else{
-            this.totalField.setText(t.simularAcordo(Float.parseFloat(this.refisField.getText())));
-        }
-        this.refisPainel.setVisible(false);
-    }//GEN-LAST:event_refisBtnActionPerformed
+    }//GEN-LAST:event_pagamentoFieldKeyTyped
 
     private void refisFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refisFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_refisFieldActionPerformed
 
-    private void totalFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_totalFieldKeyTyped
- 
-    }//GEN-LAST:event_totalFieldKeyTyped
-
-    private void pagamentoFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pagamentoFieldKeyTyped
+    private void refisFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_refisFieldKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_pagamentoFieldKeyTyped
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c) && c != '.'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_refisFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -416,26 +317,21 @@ public class testeTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acordoBtn;
-    private javax.swing.JButton checarBtn;
+    private javax.swing.JButton calcularBtn;
     private javax.swing.JLabel imageLbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton limparBtn;
     private javax.swing.JLabel megasoftLbl;
     private com.toedter.calendar.JDateChooser pagamentoField;
-    private javax.swing.JButton pagarBtn;
     private javax.swing.JTextField precoField;
-    private javax.swing.JButton refisBtn;
     private javax.swing.JTextField refisField;
-    private javax.swing.JPanel refisPainel;
     private javax.swing.JLabel testeLabel;
-    private javax.swing.JTextField totalField;
     private javax.swing.JComboBox<String> tributoComboBox;
     private com.toedter.calendar.JDateChooser vencimentoField;
     // End of variables declaration//GEN-END:variables
